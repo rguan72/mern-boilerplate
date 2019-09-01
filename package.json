@@ -9,7 +9,7 @@
     "test": "jest -i --verbose --coverage --runInBand",
     "start": "npm run build && node -r esm index.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
-    "server": "nodemon -r esm server/index.js",
+    "server": "nodemon -r esm server/bin/www",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "dboff": "killall mongod",
     "dbon": "mongod"
