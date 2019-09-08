@@ -15,7 +15,7 @@ This is a boilerplate to build a full stack web application using MongoDB, Expre
     - [Webpack dev server](#webpack-dev-server)
     - [Nodemon](#nodemon)
     - [Express](#express)
-    - [MongoDB](#mongo-db)
+    - [MongoDB](#MongoDB)
     - [ESM](#esm)
     - [Concurrently](#concurrently)
     - [VSCode + ESLint + Prettier](#vscode--eslint--prettier)
