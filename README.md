@@ -182,7 +182,7 @@ devServer: {
 
 ### Nodemon
 
-Nodemon is a utility that will monitor for any changes in the server source code and it automatically restart the server. This is used in development only.
+[Nodemon](https://github.com/remy/nodemon) is a utility that will monitor for any changes in the server source code and it automatically restart the server. This is used in development only.
 
 nodemon.json file is used to describe the configurations for Nodemon. Below is the nodemon.json file which I am using.
 
@@ -196,7 +196,7 @@ Here, we tell nodemon to watch the files in the directory src/server where out s
 
 ### Express
 
-Express is a web application framework for Node.js. It is used to build our backend APIs.
+[Express](http://expressjs.com/) is a web application framework for Node.js. It is used to build our backend APIs.
 
 `server/bin/www` is the entry point to the server application.
 
@@ -204,7 +204,7 @@ This starts a server and listens on port 8080 for connections. The app responds 
 
 ### MongoDB
 
-MongoDB is a NoSQL database used to store resources related to our backend APIs. This project uses [Mongoose](https://github.com/Automattic/mongoose), an ORM for MongoDB. `npm run dbon` turns on the MongoDB database. Schemas are declared in `server/src/model/` and are used in `server/src/routes` with standard ORM methods like `find` and `create`.
+[MongoDB](https://www.mongodb.com/) is a NoSQL database used to store resources related to our backend APIs. This project uses [Mongoose](https://github.com/Automattic/mongoose), an ORM for MongoDB. `npm run dbon` turns on the MongoDB database. Schemas are declared in `server/src/model/` and are used in `server/src/routes` with standard ORM methods like `find` and `create`.
 
 Install MongoDB with:
 
