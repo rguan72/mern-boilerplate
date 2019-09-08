@@ -8,7 +8,7 @@
     "build": "webpack --mode production",
     "test": "jest -i --verbose --coverage --runInBand",
     "start": "npm run build && node -r esm index.js",
-    "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
+    "client": "webpack-dev-server --mode development --open --devtool inline-source-map --hot",
     "server": "nodemon -r esm server/bin/www",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "dboff": "killall mongod",
@@ -45,5 +45,14 @@
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "prettier": "^1.18.2"
   }
 }

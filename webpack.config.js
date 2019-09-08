@@ -1,37 +1,39 @@
-'use strict'
-
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HTMLPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-    devtool: 'eval',
-    entry: './client/src/main.js',
-    output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'client/dist'),
-        publicPath: '/'
-    },
-    plugins: [
-        new MiniCssExtractPlugin(),
-        new HTMLPlugin()
-    ],
-    module: {
-        rules: [
+  devtool: 'eval',
+  entry: './client/src/main.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'client/dist'),
+    publicPath: '/'
+  },
+  plugins: [new MiniCssExtractPlugin(), new HTMLPlugin()],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_module/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        use: [
           {
-            test: /\.js$/,
-            exclude: /node_module/,
-            loader: 'babel-loader',
+            loader: MiniCssExtractPlugin.loader
           },
-          {
-            test: /\.css$/,
-            use: [
-                {
-                  loader: MiniCssExtractPlugin.loader,
-                },
-                'css-loader',
-              ],
-          },
-        ],
-    },
-}
+          'css-loader'
+        ]
+      }
+    ]
+  },
+  devServer: {
+    port: 9001,
+    open: true,
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
+  }
+};
