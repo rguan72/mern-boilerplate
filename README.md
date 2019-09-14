@@ -44,6 +44,9 @@ git clone https://github.com/rguan72/mern-boilerplate
 # Go inside the directory
 cd mern-boilerplate
 
+# start mongodb database
+npm run dbon
+
 # Install dependencies
 npm install
 

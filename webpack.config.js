@@ -4,10 +4,10 @@ const path = require('path');
 
 module.exports = {
   devtool: 'eval',
-  entry: './client/src/main.js',
+  entry: './src/client/main.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'client/dist'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   },
   plugins: [new MiniCssExtractPlugin(), new HTMLPlugin()],

@@ -7,9 +7,9 @@
     "lint": "eslint ./",
     "build": "webpack --mode production",
     "test": "jest -i --verbose --coverage --runInBand",
-    "start": "npm run build && node -r esm index.js",
+    "start": "npm run build && node -r esm src/bin/www",
     "client": "webpack-dev-server --mode development --open --devtool inline-source-map --hot",
-    "server": "nodemon -r esm server/bin/www",
+    "server": "nodemon -r esm src/bin/www",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "dboff": "killall mongod",
     "dbon": "mongod"
