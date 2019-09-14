@@ -14,7 +14,7 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
 app.use(bodyParser.json(), cors());
-app.use(express.static('client/dist'));
+app.use(express.static('dist'));
 
 const api = express.Router();
 api.use('/users', users);
