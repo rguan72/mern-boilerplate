@@ -3,7 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
-import auth from '../routes/user.routes';
+import users from './routes/user.routes';
 
 dotenv.config();
 const app = express();
@@ -14,10 +14,10 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
 app.use(bodyParser.json(), cors());
-app.use(express.static('client/dist'));
+app.use(express.static('dist'));
 
 const api = express.Router();
-api.use('/auth', auth);
+api.use('/users', users);
 app.use('/api', api);
 
 app.all('*', (req, res) => {

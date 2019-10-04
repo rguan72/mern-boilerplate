@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import User from '../model/user';
 
-const authRouter = new Router();
+const userRouter = new Router();
 
-authRouter.post('/signup', (req, res) => {
+userRouter.post('/signup', (req, res) => {
   User.create(req.body)
     .then((token) => res.send(token))
     .catch((err) => {
@@ -12,7 +12,7 @@ authRouter.post('/signup', (req, res) => {
     });
 });
 
-authRouter.get('/users', (req, res) => {
+userRouter.get('/', (req, res) => {
   User.find({}, (err, users) => {
     res.send(users);
   }).catch((err) => {
@@ -21,7 +21,7 @@ authRouter.get('/users', (req, res) => {
   });
 });
 
-authRouter.get('/api/users/:id', (req, res) => {
+userRouter.get('/:id', (req, res) => {
   User.find({ _id: req.params.id }, (err, users) => {
     res.send(users);
   }).catch((err) => {
@@ -30,4 +30,4 @@ authRouter.get('/api/users/:id', (req, res) => {
   });
 });
 
-export default authRouter;
+export default userRouter;

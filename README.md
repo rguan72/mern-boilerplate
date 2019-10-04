@@ -44,6 +44,9 @@ git clone https://github.com/rguan72/mern-boilerplate
 # Go inside the directory
 cd mern-boilerplate
 
+# start mongodb database
+npm run dbon
+
 # Install dependencies
 npm install
 
@@ -114,7 +117,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const outputDirectory = "dist";
 
 module.exports = {
-  entry: ["babel-polyfill", "./src/client/index.js"],
+  entry: ["babel-polyfill", "./src/client/main.js"],
   output: {
     path: path.join(__dirname, outputDirectory),
     filename: "bundle.js"
@@ -155,7 +158,7 @@ module.exports = {
 };
 ```
 
-1.  **entry:** entry: ./src/client/index.js is where the application starts executing and webpack starts bundling.
+1.  **entry:** entry: `./src/client/main.js` is where the application starts executing and webpack starts bundling.
     Note: babel-polyfill is added to support async/await. Read more [here](https://babeljs.io/docs/en/babel-polyfill#usage-in-node-browserify-webpack).
 2.  **output path and filename:** the target directory and the filename for the bundled output
 3.  **module loaders:** Module loaders are transformations that are applied on the source code of a module. We pass all the js file through [babel-loader](https://github.com/babel/babel-loader) to transform JSX to Javascript. CSS files are passed through [css-loaders](https://github.com/webpack-contrib/css-loader) and [style-loaders](https://github.com/webpack-contrib/style-loader) to load and bundle CSS files. Fonts and images are loaded through url-loader.
@@ -173,7 +176,7 @@ devServer: {
     port: 9001,
     open: true,
     proxy: {
-        "/api": "http://localhost:8080"
+        "/api": "http://localhost:3000"
     }
 }
 ```
@@ -188,7 +191,8 @@ nodemon.json file is used to describe the configurations for Nodemon. Below is t
 
 ```javascript
 {
-  "watch": ["server/"]
+  "watch": ["src/"],
+  "ignore": ["src/client"]
 }
 ```
 
@@ -223,7 +227,7 @@ sudo apt install mongodb-clients
 
 ```javascript
 "client": "webpack-dev-server --mode development --open --devtool inline-source-map --hot",
-"server": "nodemon src/server/index.js",
+"server": "nodemon -r esm src/bin/www",
 "dev": "concurrently \"npm run server\" \"npm run client\""
 ```
 
