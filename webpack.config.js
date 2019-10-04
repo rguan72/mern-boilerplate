@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
   devtool: 'eval',
-  entry: './src/client/main.js',
+  entry: ['babel-polyfill', './src/client/main.js'],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),

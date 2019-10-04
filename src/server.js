@@ -8,7 +8,7 @@ import users from './routes/user.routes';
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI =  process.env.MONGODB_URI || 'mongodb://localhost/mern-boilerplate';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/mern-boilerplate';
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
